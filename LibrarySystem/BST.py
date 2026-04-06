@@ -142,7 +142,7 @@ def terminal_interface():
                     year = int(year_input)
                     break
                 else:
-                    print("⚠️ Invalid input. Please enter a valid number for the year.")
+                    print("Invalid input. Please enter a valid number for the year.")
 
             try:
                 library.insert(title, author, year)
