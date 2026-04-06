@@ -45,7 +45,7 @@ class BST:
                 self._insert(node.right, title, author, year)
         else:
             # there is a duplicate book since title == node.title
-            raise ValueError(f"Book '{title} already exists within this library!")
+            raise ValueError(f"Book '{title}' already exists within this library!")
 
     def search(self, title):
         if self.root is None:
@@ -111,6 +111,7 @@ def terminal_interface():
     library.insert("Meatball", "Shubkarman", 2025)
     library.insert("Moby Dick", "Herman Melville", 1851)  # Root
     library.insert("Fahrenheit 451", "Ray Bradbury", 1953)  # Left child
+    library.insert("Ling ling ling", "ling ling ling", 2027)
     library.insert("The Great Gatsby", "F. Scott Fitzgerald", 1925)  # Right child
     library.insert("The Second Coming of Brian", "Brian Wu", 2026)  # Right-Right
     library.insert("A Tale of Two Cities", "Charles Dickens", 1859)  # Left-Left
@@ -177,7 +178,7 @@ def terminal_interface():
 
         elif choice == '4':
             print("\nPre-order Catalog")
-            # We use your in-order traversal here because it sorts alphabetically!
+            # We use your pre-order traversal here because it sorts alphabetically!
             all_nodes = library.pre_order_traversal(library.root)
 
             if not all_nodes:
@@ -188,7 +189,7 @@ def terminal_interface():
 
         elif choice == '5':
             print("\nPost-order Catalog")
-            # We use your in-order traversal here because it sorts alphabetically!
+            # We use your post-order traversal here because it sorts alphabetically!
             all_nodes = library.post_order_traversal(library.root)
 
             if not all_nodes:
@@ -202,7 +203,7 @@ def terminal_interface():
             break  # This breaks the while loop and ends the program
 
         else:
-            print("\n⚠Invalid choice. Please type 1, 2, 3, or 4.")
+            print("\nInvalid choice. Please type 1, 2, 3, 4, 5 or 6.")
 
 
 if __name__ == "__main__":
