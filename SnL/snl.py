@@ -6,6 +6,7 @@ Date: 2026-04-04
 
 import random
 
+BOARD_SIZE = 30
 
 
 #functions
@@ -28,8 +29,8 @@ def move_player(player):
         players[player] = snl[players[player]]
     
     #check for overflow
-    if players[player] >= 30:
-        players[player] = 30
+    if players[player] >= BOARD_SIZE:
+        players[player] = BOARD_SIZE
         print(f"===={player} wins!====")
     
     return players[player]
@@ -66,6 +67,7 @@ players[p2] = 0
 display()
 
 winner = None
+another = None
 turn = 0
 while not winner:
     #print turn number
@@ -78,8 +80,20 @@ while not winner:
         players[p] = move_player(p)
 
         #check for winner
-        if players[p] == 30:
+        if players[p] == BOARD_SIZE:
             winner = p
             break
+    
+    if winner:
+        another = int(input("Press 1 to play again or press 2 to exit : "))
+        if another == 1:
+            winner = None
+            another = None
+            turn = 0
+            players[p1] = 0
+            players[p2] = 0
+
+            print("\n\n")
+    
     #display positions
     display()
